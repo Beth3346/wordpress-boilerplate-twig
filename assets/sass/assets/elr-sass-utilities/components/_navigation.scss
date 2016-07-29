@@ -1,0 +1,259 @@
+// Navigation Elements
+
+// creates a nav-bar with a transparent background
+
+@mixin elr-nav-bar($text-color: $text-color, $hover-color: $link-color, $align: left, $divider-color: $light-grey) {
+    @include elr-clearfix;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block;
+        float: left;
+
+        > ul {
+            color: $text-color;
+            padding: 0 20px 0 0;
+
+            li {
+                float: none;
+            }
+
+            .divider {
+                @include elr-list-divider($divider-color);
+            }
+        }   
+    }
+
+    a {
+        padding: 5px 10px;
+        width: 100%;
+        text-align: $align;
+        color: $text-color;
+        text-decoration: none;
+        transition: all, .3s;
+
+        &.active {
+            color: $hover-color;
+        }
+
+        &:hover,
+        &:focus {
+            color: $hover-color;
+            transition: all, .3s;
+        }
+    }
+
+    .text-disabled {
+        color: $light-grey;
+        cursor: not-allowed;
+    }
+}
+
+@mixin elr-nav-bar-stacked($text-color: $text-color, $hover-color: $link-color, $align: left) {
+    @include elr-nav-bar($text-color, $hover-color, $align);
+
+    li {
+        float: none;
+
+        > ul {
+            padding: 0;
+
+            a {
+                padding-left: 20px;
+            }
+        }
+    }   
+}
+
+// creates a nav bar with a solid color background
+// hover state will invert text color and background color
+
+@mixin elr-nav-bar-solid($text-color: $background-color, $background-color: $link-color, $align: center, $active-color: lighten($link-color, 10%)
+) {
+    @include elr-nav-bar($text-color, $background-color, $align);
+
+    li > ul {
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        margin: 0;
+        background-color: $background-color;
+        color: $text-color;
+
+        &.active {
+            background-color: $active-color;
+            color: $text-color;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $active-color;
+            color: $text-color;
+        }   
+    }
+}
+
+@mixin elr-nav-bar-solid-stacked($text-color: $background-color, $background-color: $link-color, $align: left, $active-color: lighten($link-color, 10%)) {
+    @include elr-nav-bar-stacked($text-color, $background-color, $align);
+    background-color: $background-color;
+
+    li > ul {
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        background-color: $background-color;
+        color: $text-color;
+
+        &.active {
+            background-color: $active-color;
+            color: $text-color;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $active-color;
+            color: $text-color;
+        }
+    }
+}
+
+// creates a nav-bar with a pill shaped button that shows on hover
+
+@mixin elr-nav-bar-pills($text-color: $link-color, $hover-color: lighten($link-color, 10%), $align: left, $border: none, $active-color: $white) {
+    @include elr-nav-bar($text-color, lighten($link-color, 10%), $align);
+
+    li {
+        margin-right: 5px;
+        padding: 5px 0 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        > ul {
+            margin-top: 0;
+            padding: 0;
+
+            > li {
+                width: 100%;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        color: $text-color;
+        border-radius: 5px;
+        width: 100%;
+
+        @if $border != none {
+            border: 1px solid $border;      
+        } @else {
+            border: 0;
+        }
+
+        &.active {
+            background-color: $text-color;
+            color: $active-color;
+        }
+        
+        &:hover,
+        &:focus {
+            background-color: $text-color;
+            color: $active-color;
+        }
+    }
+}
+
+@mixin elr-nav-bar-pills-stacked($text-color: $link-color, $hover-color: lighten($link-color, 10%), $align: left, $border: none, $active-color: $white) {
+    @include elr-nav-bar-pills($text-color, $hover-color, $align, $border, $active-color);
+
+    li {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        > ul {
+
+            a {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    a {
+        display: block;
+    }
+}
+
+// creates a nav-bar with pill shaped buttons
+
+@mixin elr-nav-bar-pills-solid($text-color: $background-color, $background-color: $link-color, $align: left, $border: none, $active-color: lighten($link-color, 10%), $hover-text-color: $white) {
+    @include elr-nav-bar-pills($text-color, $active-color, $align, $border, $hover-text-color);
+
+    li {
+        margin-left: 0;
+
+        &:first-child {
+            margin-left: 0;
+        }   
+    }
+
+    ul > li {
+        margin: 0;
+    }
+
+    a {
+        background-color: $background-color;
+
+        &.active {
+            color: $hover-text-color;
+            background-color: $active-color;
+        }
+        
+        &:hover,
+        &:focus {
+            color: $hover-text-color;
+            background-color: $active-color;
+        }
+    }
+}
+
+@mixin elr-nav-bar-pills-solid-stacked($text-color: $background-color, $background-color: $link-color, $align: left, $border: none, $active-color: lighten($link-color, 10%), $hover-text-color: $white) {
+    @include elr-nav-bar-pills-stacked($text-color, $background-color, $align, $border, $hover-text-color);
+
+    li {
+        margin-top: 0;
+
+        &:first-child {
+            margin-top: 0;
+        }   
+    }
+
+    a {
+        background-color: $background-color;
+
+        &.active {
+            color: $hover-text-color;
+            background-color: $active-color;
+        }
+        
+        &:hover,
+        &:focus {
+            color: $hover-text-color;
+            background-color: $active-color;
+        }
+    }
+}

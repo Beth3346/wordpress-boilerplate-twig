@@ -1,0 +1,13 @@
+@mixin elr-row($max-width: $mars) {
+    .elr-row {
+        @include elr-clearfix;
+        width: 100%;
+    }
+
+    .elr-container-full .elr-row {
+        max-width: $max-width;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

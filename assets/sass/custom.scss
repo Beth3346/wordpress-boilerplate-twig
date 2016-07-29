@@ -1,0 +1,32 @@
+// scss-lint:disable Comment
+/*!-----------------------------------------------------------------------------
+    Theme Name:  WordPress Boilerplate
+    Theme URI:   github.com/Beth3346/wordpress-boilerplate.git
+    Version:     2.0.0
+    Author:      Elizabeth Rogers
+    Email:       beth@elizabeth-rogers.com
+    Website:     elizabeth-rogers.com
+    License:     GNU General Public License 3.0
+    License URI: http://www.gnu.org/licenses/gpl-3.0.html
+    Tags:        one-column, two-columns, right-sidebar, fluid-layout,
+                 custom-menu, featured-images, post-formats, sticky-post,
+                 translation-ready
+    Text Domain: elr
+-----------------------------------------------------------------------------*/
+//  ELR Sass Utilities
+
+// Authored Dependencies
+
+@import 'assets/config';
+@import 'assets/elr-sass-utilities/sass-utilities';
+
+@import 'partials/general';
+@import 'partials/header';
+@import 'partials/main-content';
+@import 'partials/sidebar';
+@import 'partials/post';
+@import 'partials/widget';
+@import 'partials/footer';
+@import 'partials/archive';
+@import 'partials/pagination';
+@import 'partials/forms';

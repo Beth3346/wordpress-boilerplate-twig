@@ -1,0 +1,32 @@
+.main-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include elr-breakpoint('mars') {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include elr-breakpoint('saturn') {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content-holder {
+    padding-right: 30px;
+
+    @include elr-breakpoint('saturn') {
+        padding-right: 0;
+    }
+
+    .full-width {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

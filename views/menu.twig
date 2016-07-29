@@ -1,0 +1,18 @@
+<nav class="nav {{nav_class}}" role="navigation">
+    <ul class="menu {{ul_class}}">
+    {% for item in menu %}
+        {% block content %}
+        <li class="{{item.classes | join(' ')}}">
+            <a href="{{item.get_link}}">{{item.title}}</a>
+            {% if item.get_children %}
+                <ul class="sub-menu">
+                  {% for child in item.get_children %}
+                    <li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+                  {% endfor %}
+                </ul>
+             {% endif %}
+        </li>
+        {% endblock %}
+    {% endfor %}
+    </ul>
+</nav>

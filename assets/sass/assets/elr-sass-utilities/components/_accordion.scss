@@ -1,0 +1,61 @@
+// Accordion
+
+@mixin elr-accordion($label-color: $link-color, $border-radius: 0, $color: $white, $border-color: $grey) {
+    @include elr-em-margin('top', 10px);
+    @include elr-em-margin('bottom', 10px);
+
+    .elr-accordion-label,
+    .elr-accordion-inner {
+        @include elr-em-margin('all', 5px, 0);
+        @include elr-em-padding('all', 5px, 10px);
+        background-color: $color;
+
+        @if ($border-color != none) {
+            border: 1px solid $border-color;
+        }
+
+        @if ($border-radius != 0) {
+            border-radius: $border-radius;
+        }
+    }
+
+    .elr-accordion-label {
+        h1,
+        h2,
+        h3,
+        p {
+            @include elr-em-font(18px);
+            padding: 0;
+            margin: 0;
+            color: $label-color;
+            font-weight: normal;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .elr-accordion-inner {
+        display: none;
+    }
+}
+
+@mixin elr-accordion-nav() {
+    .elr-accordion-icon {
+        padding-right: 5px;
+    }
+
+    .elr-accordion-nav-label {
+        font-weight: $bold;
+    }
+
+    .elr-accordion-nav-inner {
+        padding: 0;
+
+        a {
+            @include elr-em-font(13px);
+            padding-left: 30px;
+        }
+    }
+}

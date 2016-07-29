@@ -1,0 +1,98 @@
+// Lists
+
+// An unstyled list
+
+@mixin elr-list-divider($color: $light-grey) {
+    height: 1px;
+    padding: 0;
+    margin: 5px 0;
+    border-bottom: 1px solid $color;
+}
+
+@mixin elr-unstyled-list($align: left) {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    li {
+        text-align: $align;
+        list-style: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    .divider {
+        @include elr-list-divider;
+    }
+}
+
+@mixin elr-border-list($align: left, $border-color: $dark-grey, $shadow-color: none) {
+    padding: 0;
+
+    li {
+        text-align: $align;
+        list-style: none;
+        padding: 5px;
+
+        @if $shadow-color != none {
+            @include elr-inset-border($border-color, $shadow-color);
+        } @else {
+            border-bottom: 1px solid $border-color;
+        }
+    }
+}
+
+@mixin elr-inline-list($align: left) {
+    padding: 0;
+    margin: 0;
+    text-align: $align;
+
+    li {
+        display: inline-block;
+        padding-right: 5px;
+    }
+
+    a {
+        display: inline-block;
+    }
+}
+
+// bulleted list
+
+@mixin elr-bullet-list($icon: "+", $icon-font-size: 80%) {
+    @include elr-unstyled-list;
+
+    li {
+        margin-left: 0;
+        padding-left: 10px;
+
+        &:before {
+            content: $icon;
+            display: inline;
+            padding-right: 10px;
+            font-size: $icon-font-size;
+            vertical-align: middle;
+        }
+    }
+}
+
+@mixin elr-font-awesome-list($icon, $icon-font-size: 14px) {
+    @include elr-unstyled-list;
+
+    li {
+        margin-left: 0;
+        padding-left: 10px;
+
+        &:before {
+            @include elr-font-awesome($icon-font-size);
+            content: $icon;
+            display: inline;
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+    }
+}

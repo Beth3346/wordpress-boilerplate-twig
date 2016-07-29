@@ -1,0 +1,151 @@
+// Cards
+
+@mixin elr-card(
+    $bg-color: $main-color,
+    $color: $background-color,
+    $border-color: null,
+    $padding: 20px,
+    $margin: 20px,
+    $border-radius: 0
+) {
+    @include elr-em-margin('all', $margin);
+    background-color: $bg-color;
+    color: $color;
+    max-width: 100%;
+    height: auto;
+
+    @if $border-radius { border-radius: $border-radius; }
+    @if $border-color { border: 1px solid $border-color; }
+
+    .elr-card-title {
+        @include elr-em-font(24px);
+        color: $color;
+        font-weight: 700;
+    }
+
+    p {
+        @include elr-em-font(14px);
+        color: $color;
+    }
+
+    .elr-button {
+        @include elr-em-font(14px);
+        @include elr-clearfix;
+    }
+
+    .elr-card-header {
+        .elr-header-content {
+            @include elr-em-padding('all', $padding, $padding, 0, $padding);
+        }
+
+        figure {
+            margin-top: 0;
+        }
+
+        @if $border-radius {
+
+            .elr-card-full-image {
+                padding-top: 0;
+                margin: 0 0 -6px;
+                border-radius: $border-radius $border-radius 0 0;
+
+                img {
+                    border-radius: $border-radius $border-radius 0 0;
+                }
+            }
+        }
+    }
+
+    .elr-card-body {
+        @include elr-clearfix;
+        clear: both;
+
+        figure {
+            @include elr-em-margin('all', 20px);
+
+            &.elr-card-full-image {
+                margin: 0 0 -6px;
+            }
+        }
+    }
+
+    .elr-card-footer {
+        @include elr-clearfix;
+        @include elr-em-padding('all', 20px, 0, 0, 0);
+        border-top: 1px solid darken($bg-color, 10%);
+
+        .elr-card-actions {
+            @include elr-em-margin('left', 20);
+            @include elr-em-margin('right', 20);
+            @include elr-em-margin('bottom', 20);
+        }
+
+        figure {
+            @include elr-em-margin('all', 20px);
+
+            &.elr-card-full-image {
+                margin: 0 0 -6px;
+            }
+        }
+
+        @if $border-radius {
+            .elr-card-full-image {
+                border-radius: 0 0 $border-radius $border-radius;
+
+                img {
+                    border-radius: 0 0 $border-radius $border-radius;
+                }
+            }
+        }
+    }
+
+    .elr-card-content {
+        @include elr-em-padding('all', 10px, 20px);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .elr-card-full-image {
+        margin: 0;
+        padding: 0;
+    }
+
+    .elr-button { @include elr-em-width(180px) };
+
+    .elr-card-thumbnail {
+        @include elr-thumbnail(null, 60px, 60px);
+        @include elr-em-margin('all', 0, 20px, 10px, 0);
+        padding: 0;
+        float: left;
+
+        + h2 {
+            @include elr-em-font(30);
+            @include elr-em-padding('all', 30px, 0, 0, 0);
+            margin: 0;
+            line-height: 1;
+        }
+    }
+
+    .elr-card-thumbnail-round {
+        @include elr-thumbnail(null, 80px, 80px, round);
+    }
+
+    &.card-centered {
+        text-align: center;
+
+        .elr-card-thumbnail,
+        .elr-card-thumbnail-round {
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+
+            + h2 {
+                @include elr-em-padding('top', 10px);
+                clear: both;
+            }
+        }
+    }
+}

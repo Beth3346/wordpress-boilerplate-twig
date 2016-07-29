@@ -1,0 +1,88 @@
+.post { padding-bottom: 40px; }
+
+.post-title {
+    @include elr-em-font(30px);
+    font-weight: 700;
+
+    @include elr-breakpoint('saturn') {
+        @include elr-em-font(24px);
+    }
+
+    @include elr-breakpoint('neptune') {
+        @include elr-em-font(18px);
+    }
+
+    a {
+        text-decoration: none;
+        color: $link-color;
+        transition: color .3s ease;
+
+        &:hover {
+            text-decoration: none;
+            color: lighten($link-color, 15%);
+        }
+    }
+}
+
+.post-meta {
+    @include elr-em-font(14px);
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.post-image-holder {
+    max-width: 100%;
+    width: 450px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    img { display: inline-block; }
+}
+
+.alignnone { margin-bottom: 15px; }
+
+.alignleft {
+    margin-bottom: 15px;
+    float: left;
+    margin-right: 30px;
+}
+
+.alignright {
+    margin-bottom: 15px;
+    float: right;
+    margin-left: 30px;
+}
+
+.aligncenter {
+    margin-bottom: 15px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    text-align: center;
+    margin-bottom: 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    .alignleft {
+        float: left;
+        margin: 10px 15px 10px 10px;
+    }
+}
+
+.wp-caption-text {
+    font-style: italic;
+    font-size: .75em;
+    line-height: 120%;
+    margin: 6px 0;
+    margin-bottom: 20px;
+}

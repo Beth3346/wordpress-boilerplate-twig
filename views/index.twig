@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <section id="page-top">
+        <div class="post-section elr-container">
+            <div class="elr-row">
+                <div class="elr-col-full">
+                    <div class="post-box-holder">
+                    {% for post in posts %}
+                        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+                    {% endfor %}
+                    </div>
+                    {% include 'pagination.twig' with {'posts': posts} %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

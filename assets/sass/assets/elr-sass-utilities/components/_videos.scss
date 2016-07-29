@@ -1,0 +1,27 @@
+// Video Mixins
+// scss-lint:disable ImportantRule
+@mixin elr-flex-video {
+// 16:9 Aspect Ratio
+    .elr-video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 25px;
+        height: 0;
+
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@mixin elr-flex-html-video {
+    video {
+        width: 100% !important; // No lint reported
+        height: auto !important; // No lint reported
+    }
+}

@@ -1,0 +1,140 @@
+// Forms
+// scss-lint:disable QualifyingElement VendorPrefix
+
+@mixin elr-form-status($color) {
+    background-color: lighten($color, 30%);
+    border: 1px solid $color;
+
+    &:hover {
+        border: 1px solid $color;
+        box-shadow: 0 0 2px $color;
+        transition: border .5s ease, box-shadow .5s ease;
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid darken($color, 20%);
+        background-color: $white;
+        transition: border .5s ease, background .5s ease;
+    }
+}
+
+@mixin elr-form-notice($type: 'info', $font-size: 12) {
+    @include elr-em-font($font-size);
+    margin: 5px 0;
+    padding: 0;
+
+    @if ($type == 'success') {
+        color: $success-color;
+    } @elseif ($type == 'warning') {
+        color: $warning-color;
+    } @elseif ($type == 'danger') {
+        color: $danger-color;
+    } @else {
+        color: $info-color;
+    }
+}
+
+@mixin elr-form-state($bk-color: $lightest-grey, $border: $grey) {
+    background-color: $bk-color;
+    border: 1px solid $border;
+    transition: border .5s ease, box-shadow .5s ease;
+
+    &:focus {
+        outline: none;
+        border: 1px solid darken($border, 20%);
+        background-color: lighten($bk-color, 20%);
+        transition: border .5s ease, background .5s ease;
+    }
+
+    &.elr-form-success {
+        @include elr-form-status($success-color);
+    }
+
+    &.elr-form-warning {
+        @include elr-form-status($warning-color);
+    }
+
+    &.elr-form-danger {
+        @include elr-form-status($danger-color);
+    }
+
+    &[disabled] {
+        background-color: darken($bk-color, 10%);
+        border: 1px solid darken($border, 10%);
+        transition: none;
+
+        &:hover {
+            cursor: not-allowed;
+            border: 1px solid darken($border, 10%);
+            box-shadow: none;
+            transition: none;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid darken($border, 10%);
+            background-color: darken($bk-color, 10%);
+            transition: none;
+        }
+    }
+}
+
+@mixin elr-form-notices() {
+    .form-notice-holder {
+        @include elr-clearfix;
+        float: left;
+    }
+
+    p {
+        &.form-success-notice {
+            @include elr-form-notice('success');
+        }
+
+        &.form-warning-notice {
+            @include elr-form-notice('warning');
+        }
+
+        &.form-danger-notice {
+            @include elr-form-notice('danger');
+        }
+
+        &.form-info-notice,
+        &.form-length-notice {
+            @include elr-form-notice('info');
+        }
+
+        &.password-meter-danger {
+            @include elr-password-meter('danger');
+        }
+
+        &.password-meter-warning {
+            @include elr-password-meter('warning');
+        }
+
+        &.password-meter-success {
+            @include elr-password-meter('success');
+        }
+    }
+
+    small {
+        &.password-message-danger {
+            @include elr-form-notice('danger');
+        }
+
+        &.password-message-warning {
+            @include elr-form-notice('warning');
+        }
+
+        &.password-message-success {
+            @include elr-form-notice('success');
+        }
+    }
+}
+
+@mixin elr-placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &::-moz-placeholder { @content; opacity: 1; }
+    &:-ms-input-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+}

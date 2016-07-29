@@ -1,0 +1,80 @@
+@mixin elr-named-columns() {
+
+    .elr-col-full,
+    .elr-col-12 {
+        width: 100%;
+    }
+
+    .elr-col-half {
+        width: (100% / 2);
+    }
+
+    .elr-col-third {
+        width: (100% / 3);
+    }
+
+    .elr-col-two-thirds {
+        width: (100% / 3) * 2;
+    }
+
+    .elr-col-three-fourths {
+        width: (100% / 4) * 3;
+    }
+
+    .elr-col-quarter {
+        width: (100% / 4);
+    }
+
+    .elr-col-fifth {
+        width: (100% / 5);
+    }
+
+    .elr-col-four-fifths {
+        width: (100% / 5) * 4;
+    }
+
+    .elr-col-full,
+    .elr-col-half,
+    .elr-col-two-thirds,
+    .elr-col-third,
+    .elr-col-quarter,
+    .elr-col-fifth,
+    .elr-col-four-fifths,
+    .elr-col-three-fourths {
+        @include elr-clearfix;
+        float: left;
+        box-sizing: border-box;
+
+        @include elr-breakpoint('saturn') {
+            float: none;
+            width: 100%;
+        }
+    }
+}
+
+@mixin elr-columns($column-count: 12) {
+    @for $i from 1 through $column-count {
+        .elr-col-#{$i} {
+            @include elr-clearfix;
+            width: (100 / $column-count) * $i * 1%;
+            float: left;
+
+            @include elr-breakpoint('saturn') {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@mixin elr-column-offset($column-count: 12) {
+    @for $i from 1 through $column-count {
+        .elr-col-offset-#{$i} {
+            margin-left: (100 / $column-count) * $i * 1%;
+
+            @include elr-breakpoint('jupiter') {
+                margin-left: 0;
+            }
+        }
+    }
+}

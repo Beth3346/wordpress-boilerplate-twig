@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <article class="elr-container">
+        <section>
+            <div class="page-content page-section elr-row">
+                <div class="content-holder elr-col-full">
+                    {% block page %}
+                        {% if post.thumbnail.src %}
+                        <figure class="post-image-holder">
+                            <img src="{{post.thumbnail.src}}" />
+                        </figure>
+                        {% endif %}
+                        {{post.content}}
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

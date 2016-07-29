@@ -1,0 +1,15 @@
+@mixin elr-buttons($bg-color: $link-color, $color: $white, $width: 250px, $border-radius: 3px) {
+    .elr-button { @include elr-button; }
+
+    .elr-button-primary { @include elr-button-solid($bg-color, $color, $width, left, $border-radius); }
+
+    .elr-button-danger { @include elr-context-button(danger, $color, $width, left, $border-radius); }
+
+    .elr-button-success { @include elr-context-button(success, $color, $width, left, $border-radius); }
+
+    .elr-button-warning { @include elr-context-button(warning, $color, $width, left, $border-radius); }
+
+    .elr-button-info { @include elr-context-button(info, $color, $width, left, $border-radius); }
+
+    .elr-button-muted { @include elr-context-button(muted, $color, $width, left, $border-radius); }
+}

@@ -1,0 +1,53 @@
+// Tooltips
+
+@mixin elr-tooltip($direction: 'top', $bk-color: $link-color, $color: $white, $width: 100px) {
+    @include elr-em-font(12px);
+    width: $width;
+    padding: 5px 10px;
+    position: absolute;
+    background-color: $bk-color;
+    color: $color;
+    z-index: 100;
+    border-radius: 5px;
+    text-align: center;
+
+    @if $direction == 'left' {
+
+        &:before {
+            @include elr-triangle(right, 10px, half, $bk-color);
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: $width;
+        }
+
+    } @else if $direction == 'top' {
+
+        &:before {
+            @include elr-triangle(bottom, 10px, half, $bk-color);
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: ($width / 2) - 5;
+        }
+
+    } @else if $direction == 'bottom' {
+
+        &:before {
+            @include elr-triangle(top, 10px, half, $bk-color);
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: ($width / 2) - 5;
+        }
+
+    } @else  {
+        &:before {
+            @include elr-triangle(left, 10px, half, $bk-color);
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -5px;
+        }
+    }
+}

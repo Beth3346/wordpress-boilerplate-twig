@@ -1,0 +1,245 @@
+// Forms
+// scss-lint:disable QualifyingElement
+
+@mixin elr-form($bk-color: $lightest-grey, $border: $grey, $button-color: $dark-grey) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+
+    .elr-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .elr-col-full {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+
+    .elr-col-half,
+    .elr-col-third,
+    .elr-col-quarter {
+        padding-left: 0;
+        padding-right: 10px;
+        padding-bottom: 10px;
+
+        @include elr-breakpoint('saturn') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .elr-col-half:first-child,
+    .elr-col-third:first-child,
+    .elr-col-quarter:first-child {
+        padding-left: 0;
+        padding-right: 10px;
+
+        @include elr-breakpoint('saturn') {
+            padding-right: 0;
+        }
+    }
+
+    .elr-col-half:last-child,
+    .elr-col-third:last-child,
+    .elr-col-quarter:last-child {
+        padding-left: 0;
+        padding-right: 10px;
+
+        @include elr-breakpoint('saturn') {
+            padding-right: 0;
+        }
+    }
+
+    small {
+        display: block;
+        color: $grey;
+        margin: 0 0 20px 5px;
+        padding: 0;
+    }
+
+    label {
+        @include elr-em-font(14px);
+        margin: 0;
+        line-height: 2em;
+    }
+
+    input,
+    textarea,
+    select {
+        @include elr-form-state($bk-color, $border);
+        @include elr-em-font(14px);
+        border-radius: 3px;
+
+        &.hidden-field {
+            display: none;
+        }
+    }
+
+    input,
+    textarea {
+        margin: 5px 0;
+        padding: 5px 15px;
+    }
+
+    select {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    [type="text"],
+    [type="tel"],
+    [type="email"],
+    [type="password"],
+    [type="url"],
+    textarea,
+    select:not([type="multiple"]) {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    .elr-select-wrapper {
+        @include elr-select;
+    }
+
+    select {
+        height: 30px;
+    }
+
+    [multiple] {
+        height: auto;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    [type="checkbox"],
+    [type="radio"] {
+        display: inline;
+        padding: 4px 4px 0 0;
+    }
+
+    .elr-control-label {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    .elr-tabular-control-group {
+        padding: 15px 0;
+    }
+
+    .elr-control-group {
+        padding: 5px 0;
+
+        label {
+            padding: 0;
+            display: inline;
+            line-height: normal;
+            vertical-align: middle;
+        }
+
+        [type="checkbox"],
+        [type="radio"] {
+            display: inline-block;
+            margin: 0 10px 0 0;
+            padding: 0;
+        }
+    }
+
+    .elr-inline-control-group {
+        @include elr-clearfix;
+        float: left;
+        margin: 0 0 0 15px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        label {
+            @include elr-em-font(14px);
+            display: inline;
+            vertical-align: middle;
+        }
+
+        [type="text"],
+        [type="tel"],
+        [type="email"],
+        [type="password"],
+        [type="url"],
+        textarea,
+        select {
+            width: auto;
+            display: inline-block;
+            margin: 0 0 0 15px;
+        }
+
+        select {
+            margin-top: 0;
+            padding-right: 30px;
+        }
+
+        .elr-select-wrapper {
+            padding-top: 10px;
+            display: inline;
+
+            &:after {
+                top: 45%;
+                transform: none;
+            }
+        }
+
+        .elr-control-group {
+            margin-left: -10px;
+            margin-right: 15px;
+            float: left;
+
+            [type="checkbox"],
+            [type="radio"] {
+                margin-top: 14px;
+                margin-left: 10px;
+            }
+        }
+
+        [type="submit"],
+        [type="button"],
+        button {
+            margin-top: -5px;
+        }
+    }
+
+    [type="submit"],
+    [type="button"],
+    button {
+        @include elr-em-font(14px);
+        @include elr-button;
+        @include elr-button-solid($button-color, $white, 180px, null, 3px, $button-color, block);
+        margin: 10px 0;
+    }
+
+    [type="submit"][disabled],
+    button[disabled] {
+        @include elr-button;
+        @include elr-button-solid(lighten($button-color, 50%), $white, 180px, null, 3px, lighten($button-color, 50%), block);
+
+        &:hover {
+            cursor: not-allowed;
+            background-color: lighten($button-color, 50%);
+            color: $white;
+            transition: none;
+        }
+    }
+}
+
+@mixin elr-select($icon: '\f0d7', $font-size: 14px) {
+    position: relative;
+    padding: 5px 0;
+
+    &::after {
+        @include elr-font-awesome($font-size);
+        @include elr-centerer(true, false);
+        content: $icon;
+        right: 15px;
+        pointer-events: none;
+    }
+}

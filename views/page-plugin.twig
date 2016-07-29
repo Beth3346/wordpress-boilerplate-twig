@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <article id="page-top">
+        {% block page %}
+        <section>
+            <div class="page-content page-section">
+                <div class="content-holder">
+                    {{post.content}}
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+    </article>
+{% endblock %}

@@ -1,0 +1,107 @@
+// Variables
+
+// screen sizes
+
+$mercury: 1600px;
+$venus: 1600px;
+$earth: 1400px;
+$mars: 1200px;
+$jupiter: 1024px;
+$saturn: 768px;
+$uranus: 667px;
+$neptune: 568px;
+$pluto: 375px;
+
+$desktop-lg: 1600px;
+$desktop-md: 1600px;
+$desktop-sm: 1400px;
+$laptop: 1200px;
+$ipad-pro-ld: 1366px;
+$ipad-pro-pt: 1024px;
+$ipad-ld: 1024px;
+$ipad-pt: 768px;
+$iphone6-ld: 667px;
+$iphone5-ld: 568px;
+$iphone5-pt: 321px;
+$iphone6p-ld: 736px;
+$iphone6p-pt: 414px;
+$iphone6-pt: 375px;
+$iphone5-pt: 350px;
+
+$iphone6p-landscape: 736px;
+$iphone6-portrait: 414px;
+$iphone5-portrait: 350px;
+
+// font faces
+
+$serif-font: Georgia, 'Times New Roman', serif;
+$sans-serif-font: 'Lato', Helvetica, Arial, sans-serif;
+// $sans-serif-font: 'Raleway', sans-serif;
+$cursive-font: 'Poiret One', cursive;
+
+// typography
+
+$font-family: $sans-serif-font;
+$default-font-size: 16;
+$default-line-height: 1.5;
+
+$h1: 48px;
+$h2: 36px;
+$h3: 30px;
+$h4: 24px;
+$h5: 18px;
+$h6: 16px;
+
+$bold: 700;
+$normal: 500;
+$light: 300;
+
+// colors
+
+// add more colors below
+$black: #000;
+$white: #fff;
+$almost-black: #111;
+$dark-grey: #333;
+$darker-grey: #666;
+$grey: #999;
+$light-grey: #ccc;
+$lighter-grey: #ddd;
+$lightest-grey: #eee;
+$off-white: #e2e2e2;
+$almost-white: #f1f1f1;
+
+$coral: #ff7f50;
+$elr-blue: #1976d2;
+$elr-blue-light: lighten($elr-blue, 20%);
+$dark-aqua: #096367;
+$dark-pink: #ed145b;
+$red: #f7322f;
+$yellow: #d1cb34;
+$green: #7aba7b;
+$blue: #1daaf0;
+
+// font colors
+
+$danger-color: $red;
+$warning-color: $yellow;
+$success-color: $green;
+$info-color: $blue;
+$muted-color: $grey;
+
+// color scheme
+
+$link-color: $elr-blue;
+$hover-color: $elr-blue-light;
+$background-color: $white;
+$main-color: $dark-grey;
+$text-color: $dark-grey;
+$accent-color: $dark-pink;
+$shadow-color: $off-white;
+
+$instagram-color: #5380a6;
+$google-plus-color: #dd4b38;
+$twitter-color: #25aae1;
+$pinterest-color: #ce2128;
+$facebook-color: #3c5b9a;
+$linkedin-color: #128fc3;

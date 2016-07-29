@@ -1,0 +1,45 @@
+// Typography Classes
+
+@mixin elr-typography-classes() {
+
+    .elr-bold { font-weight: bold; }
+
+    .elr-italic { font-style: italic; }
+
+    .elr-underline { text-decoration: underline; }
+
+    .elr-uppercase { text-transform: uppercase; }
+
+    .elr-capitalize { text-transform: capitalize; }
+
+    .elr-smaller-text { font-size: 80%; }
+
+    .elr-text-left { text-align: left; }
+
+    .elr-text-right { text-align: right; }
+
+    .elr-text-center { text-align: center; }
+
+    .elr-text-justified { text-align: justify; }
+
+    .elr-text-muted { color: $muted-color; }
+
+    .elr-text-disabled { color: $light-grey; }
+
+    .elr-text-danger { color: $danger-color; }
+
+    .elr-text-error {
+        color: $danger-color;
+        font-weight: $bold;
+    }
+
+    .elr-text-info { color: $info-color; }
+
+    .elr-text-warning { color: $warning-color; }
+
+    .elr-text-success { color: $success-color; }
+
+    .elr-highlight { color: $accent-color; }
+
+    .elr-avoid-wrap { display: inline-block; }
+}

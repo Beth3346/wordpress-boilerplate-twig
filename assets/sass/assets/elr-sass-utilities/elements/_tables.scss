@@ -1,0 +1,50 @@
+// Tables
+
+@mixin elr-table($bk-color: $white, $color: $dark-grey, $hover-bk: $link-color, $border-color: 'none', $stripes: 'none') {
+    @include elr-table-base($bk-color, $color, $hover-bk, $border-color, $stripes);
+    border-collapse: collapse;
+}
+
+@mixin elr-table-rounded($bk-color: $white, $color: $dark-grey, $hover-bk: $link-color, $border-color: 'none', $stripes: 'none') {
+    @include elr-table-base($bk-color, $color, $hover-bk, $border-color, $stripes);
+    border-collapse: separate;
+
+    tr:first-child {
+
+        td:first-child {
+            border-radius: 5px 0 0;
+        }
+
+        td:last-child {
+            border-radius: 0 5px 0 0;
+        }
+    }
+
+    tr:last-child {
+        td {
+            border-bottom: 1px solid $border-color;
+
+            &:first-child {
+                border-radius: 0 0 0 5px;
+            }
+
+            &:last-child {
+                border-radius: 0 0 5px;
+            }
+        }
+    }
+
+    td {
+        @if ($border-color != 'none') {
+            border-top: 1px solid $border-color;
+
+            &:first-child {
+                border-left: 1px solid $border-color;
+            }
+
+            &:last-child {
+                border-right: 1px solid $border-color;
+            }
+        }
+    }
+}

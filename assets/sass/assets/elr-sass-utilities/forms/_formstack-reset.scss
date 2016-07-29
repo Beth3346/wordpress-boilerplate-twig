@@ -1,0 +1,117 @@
+// Forms
+// scss-lint:disable ImportantRule SelectorFormat QualifyingElement
+
+@mixin elr-formstack-reset($background: transparent, $color: $text-color, $border-radius: 0, $input-color: $white, $border-color: none) {
+    // Formstack Form reset
+    .fsForm {
+        border: 0 !important;
+        width: 100% !important;
+        background-color: $background !important;
+        margin: 0 !important;
+    }
+
+    .fsBody .fsLabel,
+    .fsBody label {
+        font-weight: normal !important;
+    }
+
+    .fsBody .fsRowBody {
+        padding: 10px 0 !important;
+    }
+
+    .fsForm [type=text],
+    .fsForm [type=name],
+    .fsForm [type=email],
+    .fsForm [type=tel],
+    .fsForm textarea,
+    .fsForm select {
+        width: 100% !important;
+        background-image: none !important;
+        max-width: none !important;
+        border-radius: $border-radius !important;
+        background-color: $input-color !important;
+        color: $color !important;
+
+        @if ($border-color != none) {
+            border: 1px solid $border-color !important;
+        } @else {
+            border: 0 !important;
+        }
+
+        @include elr-placeholder {
+            color: $color !important;
+        }
+    }
+
+    .fsForm select {
+        box-shadow: none !important;
+        -moz-appearance: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        height: 40px;
+    }
+
+    .fsPage:after,
+    .fsPage:before,
+    .fsSection:after,
+    .fsSection:before,
+    .fsFieldRow:after,
+    .fsFieldRow:before {
+        content: '';
+        display: table;
+    }
+
+    .fsPage:after,
+    .fsSection:after,
+    .fsFieldRow:after {
+        clear: both;
+    }
+
+    .fsForm .fsSubmit {
+        background: none !important;
+        text-align: right;
+        margin: 0 !important;
+        padding: 10px 0 !important;
+    }
+
+    .fsForm .fsSubmit input {
+        border: 0 !important;
+        padding: .5em 1em !important;
+        font-weight: normal !important;
+        border-radius: $border-radius !important;
+        cursor: pointer;
+        color: $color !important;
+    }
+
+    .fsForm input.fsField[type="email"]:focus,
+    .fsForm input.fsField[type="file"]:focus,
+    .fsForm input.fsField[type="number"]:focus,
+    .fsForm input.fsField[type="tel"]:focus,
+    .fsForm input.fsField[type="text"]:focus,
+    .fsForm textarea.fsField:focus {
+        border-color: $link-color !important;
+
+        @include elr-placeholder {
+            color: rgba($link-color, .5) !important;
+        }
+    }
+
+    .fsError {
+        border: 0 !important;
+        background: 0 !important;
+        color: $danger-color !important;
+        text-align: left !important;
+    }
+
+    .fsForm {
+        color: $color !important;
+    }
+
+    .fsboxshadow .fsBody .fsForm {
+        box-shadow: none !important;
+    }
+
+    .fsFieldFocused {
+        background-color: transparent !important;
+    }
+}

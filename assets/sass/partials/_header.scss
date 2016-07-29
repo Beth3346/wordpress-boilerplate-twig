@@ -1,0 +1,52 @@
+.main-header {
+    background-color: $elr-blue;
+    color: $white;
+    padding: 0;
+
+    @include elr-breakpoint('mars') {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
+
+    a {
+        color: $white;
+    }
+}
+
+.site-name {
+    @include elr-em-font(18px);
+    padding: 10px 10px 10px 0;
+    margin: 0;
+    font-weight: 700;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.main-menu {
+    padding: 0;
+    margin: 0;
+    text-align: right;
+
+    @include elr-breakpoint('saturn') {
+        text-align: center;
+    }
+
+    li {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        padding: 12px 10px;
+
+        @include elr-breakpoint('saturn') {
+            padding: 5px;
+        }
+    }
+}

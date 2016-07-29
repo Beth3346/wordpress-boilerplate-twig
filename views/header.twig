@@ -1,0 +1,14 @@
+<header class="main-header elr-container-full" role="banner">
+    {% block header %}
+    <div class="elr-row">
+        <div class="elr-col-third">
+            <h2 class="site-name">
+                <a href="{{site.url}}" rel="home">{{site.name}}</a>
+            </h2>
+        </div>
+        <div class="navigation-holder elr-col-two-thirds">
+            {% include "menu.twig" with {'menu': main_nav.get_items, 'nav_class': 'main-nav', 'ul_class': 'main-menu elr-inline-list'} %}
+        </div>
+    </div>
+    {% endblock %}
+</header>

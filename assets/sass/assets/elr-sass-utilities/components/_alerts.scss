@@ -1,0 +1,22 @@
+// Alert Classes
+
+@mixin elr-alert-classes() {
+    .elr-info-alert,
+    .elr-danger-alert,
+    .elr-warning-alert,
+    .elr-success-alert,
+    .elr-muted-alert {
+
+        p { padding: 10px 0; }
+    }
+
+    .elr-info-alert { @include elr-context-box(info, 3px); }
+
+    .elr-danger-alert { @include elr-context-box(danger, 3px); }
+
+    .elr-warning-alert { @include elr-context-box(warning, 3px); }
+
+    .elr-success-alert { @include elr-context-box(success, 3px); }
+
+    .elr-muted-alert { @include elr-context-box(muted, 3px); }
+}

@@ -1,0 +1,7 @@
+.sidebar {
+    padding-left: 30px;
+
+    @include elr-breakpoint('saturn') {
+        padding-left: 0;
+    }
+}

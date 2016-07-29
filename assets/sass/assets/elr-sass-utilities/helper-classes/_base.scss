@@ -1,0 +1,240 @@
+// applies base styles to elements
+@mixin elr-base {
+    ul,
+    ol {
+        margin: 0;
+        padding: 10px 10px 10px 30px;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li,
+    dd,
+    dt {
+        margin: 0;
+        padding: 0 0 10px;
+    }
+
+    dl {
+        padding: 0;
+        margin: 0;
+    }
+
+    dt {
+        font-weight: $bold;
+        padding-bottom: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        padding: 10px 0;
+        font-weight: $normal;
+    }
+
+    h1 {
+        @include elr-em-font($h1);
+        line-height: 1.2;
+
+        @include elr-breakpoint('jupiter') {
+            @include elr-em-font($h1 - 8);
+        }
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h1 - 16);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h1 - 24);
+        }
+    }
+
+    h2 {
+        @include elr-em-font($h2);
+        line-height: 1.2;
+
+        @include elr-breakpoint('jupiter') {
+            @include elr-em-font($h2 - 5);
+        }
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h2 - 10);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h2 - 15);
+        }
+    }
+
+    h3 {
+        @include elr-em-font($h3);
+        line-height: 1.2;
+
+        @include elr-breakpoint('jupiter') {
+            @include elr-em-font($h3 - 4);
+        }
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h3 - 8);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h3 - 12);
+        }
+    }
+
+    h4 {
+        @include elr-em-font($h4);
+
+        @include elr-breakpoint('jupiter') {
+            @include elr-em-font($h4 - 4);
+        }
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h4 - 6);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h4 - 8);
+        }
+    }
+
+    h5 {
+        @include elr-em-font($h5);
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h5 - 2);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h5 - 4);
+        }
+    }
+
+    h6 {
+        @include elr-em-font($h6);
+
+        @include elr-breakpoint('saturn') {
+            @include elr-em-font($h6 - 2);
+        }
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($h6 - 4);
+        }
+    }
+
+    mark {
+        background-color: $accent-color;
+        color: $white;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    p {
+        @include elr-em-font($default-font-size);
+        margin: 0;
+        padding: 0 0 10px;
+
+        @include elr-breakpoint('neptune') {
+            @include elr-em-font($default-font-size - 2);
+        }
+    }
+
+    small {
+        @include elr-em-font($default-font-size - 4);
+    }
+
+    blockquote {
+        margin: 0;
+        padding: 10px;
+        font-style: italic;
+    }
+
+    cite {
+        font-style: normal;
+    }
+
+    pre {
+        @include elr-em-font(14px);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: $lightest-grey;
+        border: 1px solid $light-grey;
+        padding: 10px;
+        border-radius: 3px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+
+        @include elr-breakpoint('neptune') {
+            width: 100%;
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        color: $link-color;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    input,
+    select,
+    textarea,
+    fieldset {
+        font-family: $font-family;
+        font-size: $default-font-size#{px};
+        box-sizing: border-box;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    label {
+        vertical-align: middle;
+    }
+
+    input[type=text],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=time],
+    input[type=url],
+    input[type=week] {
+        height: 30px;
+        padding: 10px;
+        -webkit-appearance: none;
+    }
+
+    select,
+    textarea {
+        line-height: 1.75;
+        padding: 10px;
+    }
+
+    select:not([multiple]) {
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}

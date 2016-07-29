@@ -1,0 +1,41 @@
+.widget {
+    padding: 0 20px 10px;
+
+    @include elr-breakpoint('saturn') {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 0 0 5px;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.elr-widget-thumbnail {
+    height: 100px;
+
+    img {
+        width: auto;
+        max-height: 100%;
+    }
+}
+
+.widget-title {
+    @include elr-em-font(18px);
+    font-weight: 700;
+}

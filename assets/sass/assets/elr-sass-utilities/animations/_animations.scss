@@ -1,0 +1,13 @@
+@mixin elr-spin() {
+    animation: spinAround 9s linear infinite;
+
+    @keyframes spinAround {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

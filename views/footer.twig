@@ -1,0 +1,10 @@
+<footer class="main-footer elr-container-full">
+    <div class="elr-row">
+        <div class="elr-col-full">
+            {% include "menu.twig" with {'menu': footer_nav.get_items, 'nav_class': 'footer-nav', 'ul_class': 'footer-menu elr-inline-list elr-text-center'} %}
+        </div>
+        <small class="copyright elr-col-full elr-text-center">
+            {{site.name}} &copy; {{now|date('Y')}} All Rights Reserved.
+        </small>
+    </div>
+</footer>

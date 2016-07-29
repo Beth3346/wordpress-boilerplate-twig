@@ -1,0 +1,115 @@
+// Tabbed Content
+
+@mixin elr-tabs($bg-color: $background-color, $color: text-color, $width: 100%, $border-radius: 5px) {
+    width: $width;
+
+    .elr-tab-holder {
+        @include elr-tab($bg-color, $color, $border-radius);
+    }
+
+    .elr-tab-list {
+        @include elr-tab-list($border-radius);
+    }
+}
+
+@mixin elr-tab($bg-color: $background-color, $color: text-color, $border-radius: 5px) {
+    border: 1px solid $light-grey;
+    border-radius: 0 $border-radius $border-radius;
+    padding: 20px 30px;
+    background-color: $bg-color;
+
+    figure {
+        @include elr-rectangle(140px, auto);
+        float: left;
+        margin: 20px 20px 0 0;
+    }
+
+    img {
+        @include elr-rounded-image($border-radius);
+    }
+
+    section {
+        display: none;
+    }
+
+    .elr-tab-title {
+        @include elr-em-font(24);
+        color: $text-color;
+    }
+
+    p {
+        @include elr-em-font(14);
+        color: $text-color;
+    }
+
+    &:first-child {
+        display: block;
+    }
+}
+
+@mixin elr-tab-list($border-radius: 5px) {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    top: 1px;
+
+    ul {
+        @include elr-clearfix;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 0;
+        margin: 0 2px 0 0;
+        list-style: none;
+        display: block;
+        float: left;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    a {
+        @include elr-em-font(14);
+        padding: 5px 15px;
+        width: 100%;
+        text-align: left;
+        display: block;
+        text-decoration: none;
+        transition: all, .3s;
+        border: 1px solid $elr-blue;
+        border-bottom-color: $light-grey;
+        border-radius: $border-radius $border-radius 0 0;
+        color: $white;
+        background-color: $elr-blue;
+
+        &.active {
+            color: $elr-blue;
+            border-color: $light-grey;
+            background-color: $white;
+            transition: all, .3s;
+            border-bottom-color: $white;
+
+            &:hover,
+            &:focus {
+                border-bottom-color: $white;
+            }
+        }
+
+        &.text-disabled {
+            color: $light-grey;
+            cursor: not-allowed;
+        }
+
+        &:hover,
+        &:focus {
+            color: $elr-blue;
+            background-color: $white;
+            border-color: $light-grey;
+            transition: all, .3s;
+        } 
+    }
+}

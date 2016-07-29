@@ -1,0 +1,35 @@
+@mixin elr-container($max-width: $mars, $container-width: 100%, $responsive-container: 'yes') {
+    .elr-container {
+        @include elr-clearfix;
+        margin: 0 auto;
+
+        @if ($responsive-container == 'yes') {
+            width: 95%;
+
+            @include elr-breakpoint('mercury') {
+                max-width: $venus;
+            }
+
+            @include elr-breakpoint('venus') {
+                max-width: $earth;
+            }
+
+            @include elr-breakpoint('earth') {
+                max-width: $mars;
+            }
+
+            @include elr-breakpoint('mars') {
+                max-width: $jupiter;
+            }
+        } @else {
+            width: $container-width;
+            max-width: $max-width;
+        }
+    }
+
+    .elr-container-full {
+        @include elr-clearfix;
+        margin: 0;
+        width: 100%;
+    }
+}
