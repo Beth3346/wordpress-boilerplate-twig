@@ -1,1 +1,1 @@
-# WordPress Framework Tutorial
+# WordPress Boilerplate Twig
