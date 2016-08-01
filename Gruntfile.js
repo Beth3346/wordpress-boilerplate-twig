@@ -199,7 +199,6 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'jshint'],
             }
         }
-
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -214,7 +213,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-scss-lint');
-    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-babel');
 
