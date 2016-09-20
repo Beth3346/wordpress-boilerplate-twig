@@ -1,0 +1,112 @@
+@mixin elr-hamburger($width: 30px, $color: $elr-blue, $thickness: 4px) {
+    @include elr-square($width);
+    position: relative;
+    border: 0;
+    box-shadow: none;
+
+    span,
+    &::before,
+    &::after {
+        content: '';
+        height: $thickness;
+        width: $width;
+        background-color: $color;
+        display: block;
+        position: absolute;
+        left: 0;
+        border-radius: $thickness;
+    }
+
+    span {
+        top: ($width / 2) - ($thickness / 2);
+    }
+
+    &::before {
+        top: ($thickness / 2);
+    }
+
+    &::after {
+        bottom: ($thickness / 2);
+    }
+}
+
+@mixin elr-icon-close($width: 30px, $thickness: 4px) {
+    span {
+        transition: opacity .3s;
+    }
+
+    &::before {
+        transition: top, transform;
+        transition-duration: .2s, .3s;
+        transition-delay: .2s, 0s;
+    }
+
+    &::after {
+        transition: bottom, transform;
+        transition-duration: .2s, .3s;
+        transition-delay: .2s, 0s;
+    }
+
+    &.active {
+        &::before {
+            top: ($width / 2) - ($thickness / 2);
+            transform: rotate(-45deg);
+            transition-delay: 0s, .2s;
+        }
+
+        &::after {
+            bottom: ($width / 2) - ($thickness / 2);
+            transform: rotate(45deg);
+            transition-delay: 0s, .2s;
+        }
+
+        span {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+@mixin elr-icon-arrow($direction: 'left', $width: 30px, $thickness: 4px) {
+    span,
+    &::before,
+    &::after {
+        transition: all .3s;
+    }
+
+    &.active {
+        span {
+            @if ($direction == 'left') {
+                transform: rotate(-180deg);
+            } @else {
+                transform: rotate(180deg);
+            }
+        }
+
+        &::before {
+            width: 50%;
+            top: 9px;
+
+            @if ($direction == 'left') {
+                left: 0;
+                transform: rotate(-217deg);
+            } @else {
+                left: 50%;
+                transform: rotate(217deg);
+            }
+        }
+
+        &::after {
+            width: 50%;
+            bottom: 9px;
+
+            @if ($direction == 'left') {
+                left: 0;
+                transform: rotate(-145deg);
+            } @else {
+                left: 50%;
+                transform: rotate(145deg);
+            }
+        }
+    }
+}

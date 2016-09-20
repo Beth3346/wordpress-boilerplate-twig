@@ -1,0 +1,80 @@
+// Navigation Elements
+
+// creates a nav-bar with a transparent background
+
+@mixin elr-nav-bar(
+        $text-color: $text-color,
+        $hover-color: $link-color,
+        $align: left,
+        $divider-color: $light-grey,
+        $background-color: transparent,
+        $inline: true,
+        $border-radius: 0,
+        $active-color: lighten($background-color, 10%)
+    ) {
+    @include elr-clearfix;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block;
+
+        @if ($inline) {
+            float: left;
+        } @else {
+            // float: none;
+            width: 100%;
+        }
+    }
+
+    a {
+        margin: 0;
+        padding: 5px 10px;
+        width: 100%;
+        text-align: $align;
+        color: $text-color;
+        text-decoration: none;
+        transition: color .3s, background-color .3s;
+        background-color: $background-color;
+
+        @if ($inline == false) {
+            display: block;
+        }
+
+        @if ($border-radius != 0) {
+            border-radius: $border-radius;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: $hover-color;
+            background-color: $active-color;
+        }
+    }
+
+    .elr-submenu {
+        color: $text-color;
+        padding: 0;
+
+        li { float: none; }
+
+        a {
+            @if ($inline == false) {
+                padding-left: 20px;
+            }
+        }
+
+        .divider { @include elr-list-divider($divider-color); }
+    }
+
+    .text-disabled {
+        color: $light-grey;
+        cursor: not-allowed;
+    }
+}

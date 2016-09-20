@@ -1,0 +1,134 @@
+// // Navigation Elements
+
+// // creates a nav-bar with a pill shaped button that shows on hover
+
+// @mixin elr-nav-bar-pills($text-color: $link-color, $hover-color: lighten($link-color, 10%), $align: left, $border: none, $active-color: $white) {
+//     @include elr-nav-bar($text-color, lighten($link-color, 10%), $align);
+
+//     li {
+//         margin-right: 5px;
+//         padding: 5px 0 0;
+
+//         &:last-child {
+//             margin-right: 0;
+//         }
+
+//         > ul {
+//             margin-top: 0;
+//             padding: 0;
+
+//             > li {
+//                 width: 100%;
+//             }
+//         }
+//     }
+
+//     a {
+//         display: block;
+//         color: $text-color;
+//         border-radius: 5px;
+//         width: 100%;
+
+//         @if $border != none {
+//             border: 1px solid $border;
+//         } @else {
+//             border: 0;
+//         }
+
+//         &.active {
+//             background-color: $text-color;
+//             color: $active-color;
+//         }
+
+//         &:hover,
+//         &:focus {
+//             background-color: $text-color;
+//             color: $active-color;
+//         }
+//     }
+// }
+
+// @mixin elr-nav-bar-pills-stacked($text-color: $link-color, $hover-color: lighten($link-color, 10%), $align: left, $border: none, $active-color: $white) {
+//     @include elr-nav-bar-pills($text-color, $hover-color, $align, $border, $active-color);
+
+//     li {
+//         float: none;
+//         margin-right: 0;
+//         margin-bottom: 0;
+
+//         &:last-child {
+//             margin-bottom: 0;
+//         }
+
+//         > ul {
+
+//             a {
+//                 padding-left: 20px;
+//             }
+//         }
+//     }
+
+//     a {
+//         display: block;
+//     }
+// }
+
+// // creates a nav-bar with pill shaped buttons
+
+// @mixin elr-nav-bar-pills-solid($text-color: $background-color, $background-color: $link-color, $align: left, $border: none, $active-color: lighten($link-color, 10%), $hover-text-color: $white) {
+//     @include elr-nav-bar-pills($text-color, $active-color, $align, $border, $hover-text-color);
+
+//     li {
+//         margin-left: 0;
+
+//         &:first-child {
+//             margin-left: 0;
+//         }
+//     }
+
+//     ul > li {
+//         margin: 0;
+//     }
+
+//     a {
+//         background-color: $background-color;
+
+//         &.active {
+//             color: $hover-text-color;
+//             background-color: $active-color;
+//         }
+
+//         &:hover,
+//         &:focus {
+//             color: $hover-text-color;
+//             background-color: $active-color;
+//         }
+//     }
+// }
+
+// @mixin elr-nav-bar-pills-solid-stacked($text-color: $background-color, $background-color: $link-color, $align: left, $border: none, $active-color: lighten($link-color, 10%), $hover-text-color: $white) {
+//     @include elr-nav-bar-pills-stacked($text-color, $background-color, $align, $border, $hover-text-color);
+
+//     li {
+//         margin-top: 0;
+
+//         &:first-child {
+//             margin-top: 0;
+//         }
+//     }
+
+//     a {
+//         background-color: $background-color;
+
+//         &.active {
+//             color: $hover-text-color;
+//             background-color: $active-color;
+//         }
+
+//         &:hover,
+//         &:focus {
+//             color: $hover-text-color;
+//             background-color: $active-color;
+//         }
+//     }
+// }
