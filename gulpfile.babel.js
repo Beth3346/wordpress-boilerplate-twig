@@ -13,8 +13,11 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const jshint = require('gulp-jshint');
 const babel = require('gulp-babel');
+const browserSync = require('browser-sync').create();
+const gutil = require('gulp-util');
+const connect = require('gulp-connect-php');
 
-let paths = {
+const paths = {
     scss: 'assets/scss/**/*.scss',
     css: 'assets/css/*.css',
     scripts: ['assets/js/vendor/**/*.js', 'assets/js/assets/**/*.js', 'assets/js/main.js'],
@@ -50,26 +53,6 @@ gulp.task('styles', ['scsslint', 'clean:styles'], function() {
             cascade: false
         }))
         .pipe(gulp.dest('assets/css'))
-        // .pipe(csslint({
-        //     'unique-headings': false,
-        //     'font-sizes': false,
-        //     'box-sizing': false,
-        //     'floats': false,
-        //     'duplicate-background-images': false,
-        //     'font-faces': false,
-        //     'star-property-hack': false,
-        //     'qualified-headings': false,
-        //     'ids': false,
-        //     'text-indent': false,
-        //     'box-model': false,
-        //     'adjoining-classes': false,
-        //     'compatible-vendor-prefixes': false,
-        //     'important': false,
-        //     'unqualified-attributes': false,
-        //     'fallback-colors': false,
-        //     'order-alphabetical': false
-        // }))
-        // .pipe(csslint.formatter())
         .pipe(cleanCSS({debug: true}))
         .pipe(gulp.dest('assets/css'));
 });
@@ -108,10 +91,24 @@ gulp.task('images', ['clean:images'], function() {
         .pipe(gulp.dest('assets/images'));
 });
 
-gulp.task('watch', function() {
-    gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.scripts, ['scripts']);
-    gulp.watch(paths.imagesRaw, ['images']);
+gulp.task('browser-sync', ['styles', 'scripts', 'images'], function() {
+    const files = [
+        '**/*.php',
+        'views/*.twig'
+    ];
+
+    connect.server({
+        base: './../../../'
+    }, function() {
+        browserSync.init(files, {
+            proxy: 'localhost:8000',
+            notify: false
+        });
+    });
+
+    gulp.watch(paths.scss, ['styles', browserSync.reload]);
+    gulp.watch(paths.scripts, ['scripts', browserSync.reload]);
+    gulp.watch(paths.imagesRaw, ['images', browserSync.reload]);
 });
 
-gulp.task('default', ['styles', 'scripts', 'images']);
+gulp.task('default', ['browser-sync']);

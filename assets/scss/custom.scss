@@ -17,8 +17,8 @@
 
 // Authored Dependencies
 
-@import 'assets/config';
-@import 'assets/elr-sass-utilities/sass-utilities';
+@import 'config';
+@import '../../node_modules/elr-sass-utilities/main';
 
 @import 'partials/general';
 @import 'partials/header';

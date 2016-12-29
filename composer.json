@@ -2,7 +2,7 @@
     "name": "elr/wordpress-boilerplate-twig",
     "type": "wordpress-theme",
     "license": "MIT",
-    "description": "",
+    "description": "wordpress starter theme using Twig and Timber",
     "homepage": "http://www.elizabeth-rogers.com",
     "authors": [
     {
@@ -12,7 +12,10 @@
     }
     ],
     "keywords": [
-        "wordpress"
+        "wordpress",
+        "theme",
+        "twig",
+        "timber"
     ],
     "support": {
     },
