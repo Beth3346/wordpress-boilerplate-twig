@@ -1,5 +1,5 @@
 {
-    "name": "elr/elr-portfolio",
+    "name": "elr/wordpress-boilerplate-twig",
     "type": "wordpress-theme",
     "license": "MIT",
     "description": "wordpress starter theme using Twig and Timber",
@@ -39,18 +39,11 @@
             "framework/helpers/Utility.php"
         ],
         "files": [
-            "framework/custom-posts/CptSkill.php",
-            "framework/custom-posts/CptProject.php",
-            "framework/custom-posts/CptTutorial.php",
-            "framework/custom-posts/CptExperience.php",
-            "framework/custom-posts/CptEducation.php",
-            "framework/custom-posts/CptReading.php",
-            "framework/custom-posts/CptVideo.php",
-            "framework/custom-posts/CptRecommendation.php",
+            "framework/custom-posts/CptService.php",
             "framework/shortcodes/elr-shortcodes.php"
         ],
         "psr-4": {
-            "Theme\\": "elr-portfolio/"
+            "Theme\\": "wordpress-boilerplate-twig/"
         }
     }
 }
