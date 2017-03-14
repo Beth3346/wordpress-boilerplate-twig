@@ -1,9 +1,8 @@
-# WordPress Boilerplate Twig
+# ELR Portfolio
 
 ## Dependencies
 
 * Timber/Twig
-* Advanced Custom Fields
 
 ## Installation
 

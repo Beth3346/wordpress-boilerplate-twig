@@ -1,13 +1,21 @@
 <header class="main-header elr-container-full" role="banner">
     {% block header %}
     <div class="elr-row">
-        <div class="elr-col-third">
+        <div class="elr-col-quarter">
             <h2 class="site-name">
                 <a href="{{site.url}}" rel="home">{{site.name}}</a>
             </h2>
         </div>
-        <div class="navigation-holder elr-col-two-thirds">
+        <div class="navigation-holder elr-col-half">
             {% include "menu.twig" with {'menu': main_nav.get_items, 'nav_class': 'main-nav', 'ul_class': 'main-menu elr-inline-list'} %}
+        </div>
+        <div class="social">
+            {% include "menu.twig" with {'menu': social_nav.get_items, 'nav_class': 'social-nav', 'ul_class': 'main-menu elr-inline-list'} %}
+        </div>
+    </div>
+    <div class="elr-row">
+        <div class="elr-col-full">
+            {% include "menu.twig" with {'menu': front_nav.get_items, 'nav_class': 'front-nav', 'ul_class': 'main-menu elr-inline-list'} %}
         </div>
     </div>
     {% endblock %}

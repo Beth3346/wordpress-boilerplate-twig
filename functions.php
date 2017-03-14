@@ -45,7 +45,7 @@ class WpBoilerplate extends TimberSite {
         $setup = new Setup;
         $security = new Security;
 
-        $setup->registerMenus(['main-nav', 'footer-nav', 'social-nav']);
+        $setup->registerMenus(['main-nav', 'footer-nav', 'social-nav', 'front-nav']);
         $setup->registerSidebars(['sidebar']);
 
         add_theme_support('post-thumbnails');
@@ -68,6 +68,7 @@ class WpBoilerplate extends TimberSite {
     {
         $context['main_nav'] = new TimberMenu('main-nav');
         $context['social_nav'] = new TimberMenu('social-nav');
+        $context['front_nav'] = new TimberMenu('front-nav');
         $context['footer_nav'] = new TimberMenu('footer-nav');
         $context['site'] = $this;
         return $context;
